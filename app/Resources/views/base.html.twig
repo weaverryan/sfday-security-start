@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>
+            {%- if block('title') -%}
+                {{ block('title') }} | #sfdaycgn 2011
+            {%- else -%}
+                Welcome to Symfony Day Cologne!
+            {%- endif -%}
+            </title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ asset('bundles/main/css/main.css') }}">
+        {% endblock %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    <div class="topbar">
+        <div class="fill">
+            <div class="container">
+                <a class="brand" href="#">Project name</a>
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <form action="" class="pull-right">
+                    <input class="input-small" type="text" placeholder="Username">
+                    <input class="input-small" type="password" placeholder="Password">
+                    <button class="btn" type="submit">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="content">
+            <div class="page-header">
+                <h1>
+                {% block page_title %}
+                    Symfony Day 2011! <small>Security Workshop</small>
+                {% endblock %}
+                </h1>
+            </div>
+            <div class="row">
+                <div class="span10">
+                    {% block body %}{% endblock %}
+                </div>
+                <div class="span4">
+                    {% block sidebar %}
+                      <h3>Secondary content</h3>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; SfDay 2011! FTW!</p>
+        </footer>
+
+    </div> <!-- /container -->
+    {% block javascripts %}{% endblock %}
+    </body>
+</html>
